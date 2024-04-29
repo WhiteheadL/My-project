@@ -20,7 +20,7 @@ public class Chestmoving : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "player")
+        if (other.tag == "Player")
         {
             animator.SetTrigger("Open");
         }
