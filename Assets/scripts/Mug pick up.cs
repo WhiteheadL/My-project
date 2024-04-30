@@ -7,6 +7,12 @@ public class Mugpickup : MonoBehaviour
 {
     public AudioClip drinkWater;
     public GameObject ui;
+    GameObject objectToDestroy;
+
+    public void DestroyGameObject()
+    {
+        Destroy(objectToDestroy);
+    }
 
     // Start is called before the first frame update
     void Start()

@@ -5,7 +5,13 @@ using UnityEngine;
 public class banapickup : MonoBehaviour
 {
     public AudioClip eatBana;
-    public GameObject ui; 
+    public GameObject ui;
+    GameObject Bana;
+
+    public void DestroyGameObject()
+    {
+        Destroy(Bana);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +59,7 @@ public class banapickup : MonoBehaviour
     {
         HideUI();
         Eat();
+        Destroy(Bana);
     }
 
     public void PressNo()
