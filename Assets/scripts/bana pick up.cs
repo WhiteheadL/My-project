@@ -5,10 +5,12 @@ using UnityEngine;
 public class banapickup : MonoBehaviour
 {
     public AudioClip eatBana;
+    public GameObject ui; 
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        HideUI();
     }
 
     // Update is called once per frame
@@ -21,7 +23,40 @@ public class banapickup : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            gameObject.GetComponent<AudioSource>().PlayOneShot(eatBana);
+            ShowUI();
         }
+    }
+    public void Eat()
+    {
+        gameObject.GetComponent<AudioSource>().PlayOneShot(eatBana);
+    }
+
+
+
+    public void HideUI()
+    {
+        ui.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void ShowUI()
+    {
+        ui.SetActive(true);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void PressYes()
+    {
+        HideUI();
+        Eat();
+    }
+
+    public void PressNo()
+    {
+        HideUI();
     }
 }
